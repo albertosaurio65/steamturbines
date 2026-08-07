@@ -30,13 +30,13 @@
   "block.turbines.steam_boiler.tooltip.condition1": "Fuels",
   "block.turbines.steam_boiler.tooltip.behaviour1": "It can consume liquid fuels too, that's what the Pearlescent Dew is for — it is THE best fuel source for the Steam Boiler. Feed water and liquid fuel via pipes or from a bucket on-hand, and solid fuels can be inputted via mechanical arms as well.",
   "block.turbines.steam_boiler.tooltip.condition2": "Steam Setup",
-  "block.turbines.steam_boiler.tooltip.behaviour2": "Recommended layout: place a Steam Pump directly after the boiler, a Steam Compressor after the pump, then Steam Turbines further down the line. Place Pressurized Pipes between the boiler and pump if you want to combine multiple boilers into a unit/cluster.",
+  "block.turbines.steam_boiler.tooltip.behaviour2": "Recommended layout: place a Steam Pump directly after the boiler, a Steam Compressor after the pump, then Steam Turbines afterwards, further down the line. Place Pressurized Pipes between the boiler and pump if you want to combine multiple boilers into a unit/cluster.",
 
   "block.turbines.pressure_pipe.tooltip.summary": "Holds Steam for other machines. Use it along with a Pressurized Steam Pump to move steam between machines together.",
   "block.turbines.pressure_pipe.tooltip.condition1": "Passive Transport",
   "block.turbines.pressure_pipe.tooltip.behaviour1": "The pipes don't move the steam on their own — that's what the Steam Pump is for.",
 
-  "block.turbines.steam_compressor.tooltip.summary": "Uses rotational force supplied on the sides to compress Steam to have higher pressure and throughput. Place it after either a Steam Boiler or Steam Pump.",
+  "block.turbines.steam_compressor.tooltip.summary": "Uses rotational force supplied on the sides to compress Steam to have higher pressure and throughput. Place it after either a Steam Pump.",
   "block.turbines.steam_compressor.tooltip.condition1": "Performance Scaling",
   "block.turbines.steam_compressor.tooltip.behaviour1": "Pressure and throughput scale with the rotational RPM, and the kinetic stress impact obviously increases the higher the RPM goes.",
   "block.turbines.steam_compressor.tooltip.condition2": "Output",
