@@ -38,4 +38,11 @@ public final class SteamConstants {
     public static final float LAVA_DUCT_SU_PER_FACE = 475f;
     public static final int LAVA_DUCT_WATER_TANK_CAPACITY = 2000;
     public static final int LAVA_DUCT_WATER_PER_TICK_PER_TURBINE = 1;
+
+    // Open Air Turbine
+    public static final int AIR_TURBINE_MAX_SCAN_DISTANCE = 20;
+    public static final float AIR_TURBINE_BASE_SPEED = 16.0f;
+    public static final float AIR_TURBINE_CAPACITY_PER_STEAM = 256.0f;
+    public static final int AIR_TURBINE_OPTIMAL_DISTANCE = 1;
+    public static final int AIR_TURBINE_MAX_EFFECTIVE_DISTANCE = 10;
 }

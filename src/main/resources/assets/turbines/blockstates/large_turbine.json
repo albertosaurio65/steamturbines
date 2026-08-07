@@ -1,0 +1,7 @@
+{
+	"multipart": [
+		{
+			"apply": { "model": "turbines:block/large_turbine/large_turbine" }
+		}
+	]
+}

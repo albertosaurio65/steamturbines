@@ -11,6 +11,9 @@ import com.xciel.turbines.content.transport.pipe.PressurizedPipeBlockEntity;
 import com.xciel.turbines.content.turbine.SteamTurbineBlockEntity;
 import com.xciel.turbines.content.turbine.LavaDuctTurbineBlockEntity;
 import com.xciel.turbines.content.dag.DirectionalAnalogGearshiftBlockEntity;
+import com.xciel.turbines.content.green_nentia_block.GreenNentiaBlockEntity;
+import com.xciel.turbines.content.large_turbine.LargeTurbineBlockEntity;
+import com.xciel.turbines.content.open_air_turbine.OpenAirTurbineBlockEntity;
 import com.xciel.turbines.content.sjth.SteamJetThrusterBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
@@ -76,6 +79,21 @@ public class STBlockEntityTypes {
     public static final BlockEntityEntry<SteamEjectorBlockEntity> STEAM_EJECTOR = REGISTRATE
             .blockEntity("steam_ejector", SteamEjectorBlockEntity::new)
             .validBlocks(STBlocks.STEAM_EJECTOR)
+            .register();
+
+    public static final BlockEntityEntry<GreenNentiaBlockEntity> GREEN_NENTIA_BLOCK = REGISTRATE
+            .blockEntity("green_nentia_block", GreenNentiaBlockEntity::new)
+            .validBlocks(STBlocks.GREEN_NENTIA_BLOCK)
+            .register();
+
+    public static final BlockEntityEntry<OpenAirTurbineBlockEntity> OPEN_AIR_TURBINE = REGISTRATE
+            .blockEntity("open_air_turbine", OpenAirTurbineBlockEntity::new)
+            .validBlocks(STBlocks.OPEN_AIR_TURBINE)
+            .register();
+
+    public static final BlockEntityEntry<LargeTurbineBlockEntity> LARGE_TURBINE = REGISTRATE
+            .blockEntity("large_turbine", LargeTurbineBlockEntity::new)
+            .validBlocks(STBlocks.LARGE_TURBINE)
             .register();
 
     public static void register() {}

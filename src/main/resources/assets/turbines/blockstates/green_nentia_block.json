@@ -1,0 +1,7 @@
+{
+	"multipart": [
+		{
+			"apply": { "model": "turbines:block/green_nentia_block/green_nentia_block" }
+		}
+	]
+}

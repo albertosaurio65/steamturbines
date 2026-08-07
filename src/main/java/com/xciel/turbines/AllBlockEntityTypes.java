@@ -4,6 +4,9 @@ import com.xciel.turbines.registrate.STBlockEntityTypes;
 import com.xciel.turbines.content.dag.DirectionalAnalogGearshiftBlockEntity;
 import com.xciel.turbines.content.ejector.SteamEjectorBlockEntity;
 import com.xciel.turbines.content.nd.NetworkDiagnoserBlockEntity;
+import com.xciel.turbines.content.green_nentia_block.GreenNentiaBlockEntity;
+import com.xciel.turbines.content.large_turbine.LargeTurbineBlockEntity;
+import com.xciel.turbines.content.open_air_turbine.OpenAirTurbineBlockEntity;
 import com.xciel.turbines.content.sjth.SteamJetThrusterBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
@@ -20,6 +23,9 @@ public class AllBlockEntityTypes {
     public static final BlockEntityEntry<NetworkDiagnoserBlockEntity> NETWORK_DIAGNOSER = STBlockEntityTypes.NETWORK_DIAGNOSER;
     public static final BlockEntityEntry<SteamJetThrusterBlockEntity> STEAM_JET_THRUSTER = STBlockEntityTypes.STEAM_JET_THRUSTER;
     public static final BlockEntityEntry<SteamEjectorBlockEntity> STEAM_EJECTOR = STBlockEntityTypes.STEAM_EJECTOR;
+    public static final BlockEntityEntry<GreenNentiaBlockEntity> GREEN_NENTIA_BLOCK = STBlockEntityTypes.GREEN_NENTIA_BLOCK;
+    public static final BlockEntityEntry<OpenAirTurbineBlockEntity> OPEN_AIR_TURBINE = STBlockEntityTypes.OPEN_AIR_TURBINE;
+    public static final BlockEntityEntry<LargeTurbineBlockEntity> LARGE_TURBINE = STBlockEntityTypes.LARGE_TURBINE;
 
     private AllBlockEntityTypes() {}
 }

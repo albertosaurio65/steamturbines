@@ -4,6 +4,9 @@ import com.xciel.turbines.registrate.STBlocks;
 import com.xciel.turbines.content.dag.DirectionalAnalogGearshiftBlock;
 import com.xciel.turbines.content.ejector.SteamEjectorBlock;
 import com.xciel.turbines.content.nd.NetworkDiagnoserBlock;
+import com.xciel.turbines.content.green_nentia_block.GreenNentiaBlock;
+import com.xciel.turbines.content.large_turbine.LargeTurbineBlock;
+import com.xciel.turbines.content.open_air_turbine.OpenAirTurbineBlock;
 import com.xciel.turbines.content.sjth.SteamJetThrusterBlock;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.world.level.block.Block;
@@ -21,6 +24,9 @@ public class AllBlocks {
     public static final BlockEntry<NetworkDiagnoserBlock> NETWORK_DIAGNOSER = STBlocks.NETWORK_DIAGNOSER;
     public static final BlockEntry<SteamJetThrusterBlock> STEAM_JET_THRUSTER = STBlocks.STEAM_JET_THRUSTER;
     public static final BlockEntry<SteamEjectorBlock> STEAM_EJECTOR = STBlocks.STEAM_EJECTOR;
+    public static final BlockEntry<GreenNentiaBlock> GREEN_NENTIA_BLOCK = STBlocks.GREEN_NENTIA_BLOCK;
+    public static final BlockEntry<OpenAirTurbineBlock> OPEN_AIR_TURBINE = STBlocks.OPEN_AIR_TURBINE;
+    public static final BlockEntry<LargeTurbineBlock> LARGE_TURBINE = STBlocks.LARGE_TURBINE;
 
     private AllBlocks() {}
 }

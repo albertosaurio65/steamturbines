@@ -1,0 +1,7 @@
+{
+	"multipart": [
+		{
+			"apply": { "model": "turbines:block/open_air_turbine/open_air_turbine" }
+		}
+	]
+}

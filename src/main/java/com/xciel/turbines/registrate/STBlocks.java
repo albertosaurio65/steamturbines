@@ -10,6 +10,9 @@ import com.xciel.turbines.content.transport.pipe.PressurizedPipeBlock;
 import com.xciel.turbines.content.shaft.TurbineShaftBlock;
 import com.xciel.turbines.content.shaft.LavaDuctShaftBlock;
 import com.xciel.turbines.content.dag.DirectionalAnalogGearshiftBlock;
+import com.xciel.turbines.content.green_nentia_block.GreenNentiaBlock;
+import com.xciel.turbines.content.large_turbine.LargeTurbineBlock;
+import com.xciel.turbines.content.open_air_turbine.OpenAirTurbineBlock;
 import com.xciel.turbines.content.turbine.SteamTurbineBlock;
 import com.xciel.turbines.content.turbine.LavaDuctTurbineBlock;
 import com.xciel.turbines.content.sjth.SteamJetThrusterBlock;
@@ -201,6 +204,52 @@ public class STBlocks {
                             .setRolls(ConstantValue.exactly(1))
                             .add(LootItem.lootTableItem(b))
                             .when(ExplosionCondition.survivesExplosion()))))
+            .item()
+            .build()
+            .register();
+
+    public static final BlockEntry<GreenNentiaBlock> GREEN_NENTIA_BLOCK = REGISTRATE.block("green_nentia_block", GreenNentiaBlock::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.strength(3.0f, 6.0f).requiresCorrectToolForDrops())
+            .tag(BlockTags.NEEDS_STONE_TOOL)
+            .transform(pickaxeOnly())
+            .loot((lt, b) -> lt.add(b, LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                            .add(LootItem.lootTableItem(b))
+                            .when(ExplosionCondition.survivesExplosion()))))
+            .item()
+            .build()
+            .register();
+
+    public static final BlockEntry<OpenAirTurbineBlock> OPEN_AIR_TURBINE = REGISTRATE.block("open_air_turbine", OpenAirTurbineBlock::new)
+            .initialProperties(SharedProperties::softMetal)
+            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK).strength(3.0f, 6.0f).requiresCorrectToolForDrops())
+            .properties(p -> p.noOcclusion())
+            .tag(BlockTags.NEEDS_IRON_TOOL)
+            .transform(pickaxeOnly())
+            .loot((lt, b) -> lt.add(b, LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                            .add(LootItem.lootTableItem(b))
+                            .when(ExplosionCondition.survivesExplosion()))))
+            .onRegister(b -> com.simibubi.create.api.stress.BlockStressValues.CAPACITIES.register(b, () -> 256.0))
+            .item()
+            .build()
+            .register();
+
+    public static final BlockEntry<LargeTurbineBlock> LARGE_TURBINE = REGISTRATE.block("large_turbine", LargeTurbineBlock::new)
+            .initialProperties(SharedProperties::softMetal)
+            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK).strength(3.0f, 6.0f).requiresCorrectToolForDrops())
+            .properties(p -> p.noOcclusion())
+            .tag(BlockTags.NEEDS_IRON_TOOL)
+            .transform(pickaxeOnly())
+            .loot((lt, b) -> lt.add(b, LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                            .add(LootItem.lootTableItem(b))
+                            .when(ExplosionCondition.survivesExplosion()))))
+            .onRegister(b -> com.simibubi.create.api.stress.BlockStressValues.CAPACITIES.register(b, () -> 256.0))
             .item()
             .build()
             .register();
