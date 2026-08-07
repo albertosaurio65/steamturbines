@@ -12,13 +12,17 @@ import com.xciel.turbines.content.shaft.LavaDuctShaftRenderer;
 import com.xciel.turbines.content.dag.DirectionalAnalogGearshiftRenderer;
 import com.xciel.turbines.content.large_turbine.LargeTurbineRenderer;
 import com.xciel.turbines.content.open_air_turbine.OpenAirTurbineRenderer;
+import com.xciel.turbines.ponder.SteamTurbinePonderPlugin;
 import com.simibubi.create.content.kinetics.transmission.SplitShaftVisual;
 import dev.engine_room.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
+import net.createmod.ponder.foundation.PonderIndex;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class SteamTurbineClient {
 
     public static void addClientListeners(FMLClientSetupEvent event) {
+        PonderIndex.addPlugin(new SteamTurbinePonderPlugin());
+
         SteamCompressorRenderer.register();
         SteamPumpRenderer.register();
         TurbineShaftRenderer.register();

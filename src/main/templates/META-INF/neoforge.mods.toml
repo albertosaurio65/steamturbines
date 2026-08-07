@@ -33,6 +33,13 @@ ordering="AFTER"
 side="BOTH"
 
 [[dependencies.turbines]]
+modId="ponder"
+type="required"
+versionRange="[1.0.82,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.turbines]]
 modId="sable"
 type="required"
 versionRange="[1.2.1,)"
