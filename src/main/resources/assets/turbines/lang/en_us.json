@@ -1,5 +1,6 @@
 {
   "itemGroup.turbines.main": "Create: Turbines",
+
   "item.turbines.core_of_the_hearth": "Core of the Hearth",
   "item.turbines.turbine_fan": "Turbine Fan",
   "item.turbines.turbine_blade": "Turbine Blade",
@@ -8,19 +9,61 @@
   "item.turbines.pearlescent_dew_bucket.tooltip.summary": "A hyper-energetic alchemical fluid that burns at extreme temperatures. Only Steam Boilers have the refractory capacity to contain its heat so most engines would melt down instantly.",
   "item.turbines.pearlescent_dew_bucket.tooltip.condition1": "Fuel Properties",
   "item.turbines.pearlescent_dew_bucket.tooltip.behaviour1": "Burns at heat level 4.0, exceeding superheated limits. Consumes very slowly. Only compatible with the Steam Boiler and incompatible with other engines and blaze burners.",
+
   "fluid.turbines.pearlescent_dew": "Pearlescent Dew",
   "block.turbines.pearlescent_dew": "Pearlescent Dew",
-  "block.turbines.pressure_pipe": "Pressurized Steam Pipe",
+
   "block.turbines.steam_boiler": "Steam Boiler",
+  "block.turbines.pressure_pipe": "Pressurized Steam Pipe",
+  "block.turbines.steam_pump": "Pressurized Steam Pump",
   "block.turbines.steam_compressor": "Steam Compressor",
   "block.turbines.steam_turbine": "Steam Turbine",
   "block.turbines.turbine_shaft": "Steam Turbine Shaft",
-  "block.turbines.steam_pump": "Pressurized Steam Pump",
+  "block.turbines.steam_jet_thruster": "Steam Jet Thruster",
+  "block.turbines.steam_ejector": "Steam Ejector",
   "block.turbines.lava_duct_turbine": "Lava Duct Turbine",
   "block.turbines.lava_duct_shaft": "Lava Duct Shaft",
   "block.turbines.directional_analog_gearshift": "Directional Analog Gearshift",
-  "block.turbines.steam_jet_thruster": "Steam Jet Thruster",
-  "block.turbines.steam_ejector": "Steam Ejector",
+  "block.turbines.network_diagnoser": "Network Diagnoser",
+
+  "block.turbines.steam_boiler.tooltip.summary": "Produces Steam which can be fed to Steam Turbines, Steam Pumps, Steam Compressors, and Pressurized Steam Pipes. Make sure to feed it fuel and water!",
+  "block.turbines.steam_boiler.tooltip.condition1": "Fuels",
+  "block.turbines.steam_boiler.tooltip.behaviour1": "It can consume liquid fuels too, that's what the Pearlescent Dew is for — it is THE best fuel source for the Steam Boiler. Feed water and liquid fuel via pipes or from a bucket on-hand, and solid fuels can be inputted via mechanical arms as well.",
+  "block.turbines.steam_boiler.tooltip.condition2": "Steam Setup",
+  "block.turbines.steam_boiler.tooltip.behaviour2": "Recommended layout: place a Steam Pump directly after the boiler, a Steam Compressor after the pump, then Steam Turbines further down the line. Place Pressurized Pipes between the boiler and pump if you want to combine multiple boilers into a unit/cluster.",
+
+  "block.turbines.pressure_pipe.tooltip.summary": "Holds Steam for other machines. Use it along with a Pressurized Steam Pump to move steam between machines together.",
+  "block.turbines.pressure_pipe.tooltip.condition1": "Passive Transport",
+  "block.turbines.pressure_pipe.tooltip.behaviour1": "The pipes don't move the steam on their own — that's what the Steam Pump is for.",
+
+  "block.turbines.steam_compressor.tooltip.summary": "Uses rotational force supplied on the sides to compress Steam to have higher pressure and throughput. Place it after either a Steam Boiler or Steam Pump.",
+  "block.turbines.steam_compressor.tooltip.condition1": "Performance Scaling",
+  "block.turbines.steam_compressor.tooltip.behaviour1": "Pressure and throughput scale with the rotational RPM, and the kinetic stress impact obviously increases the higher the RPM goes.",
+  "block.turbines.steam_compressor.tooltip.condition2": "Output",
+  "block.turbines.steam_compressor.tooltip.behaviour2": "Outputs to any other machine that accepts steam input, like the Steam Turbine and Steam Jet Thruster.",
+
+  "block.turbines.steam_turbine.tooltip.summary": "Consumes Steam to generate power which is sent to the Steam Turbine Shaft. You can chain 10 of these together for higher SU.",
+  "block.turbines.steam_turbine.tooltip.condition1": "Chaining",
+  "block.turbines.steam_turbine.tooltip.behaviour1": "More pressure and throughput = more power produced and more turbines you can chain. Steam weakens as it moves between turbines, so 10 chained turbines is the max before the Steam Turbine Shaft.",
+  "block.turbines.steam_turbine.tooltip.condition2": "Goggles",
+  "block.turbines.steam_turbine.tooltip.behaviour2": "You can view the stats of these with engineer goggles.",
+
+  "block.turbines.turbine_shaft.tooltip.summary": "Generates SU from chained Steam Turbines.",
+  "block.turbines.turbine_shaft.tooltip.condition1": "SU Output",
+  "block.turbines.turbine_shaft.tooltip.behaviour1": "The turbine shaft calculates turbine count, pressure, and throughput for the total SU output. Increasing these = more SU.",
+  "block.turbines.turbine_shaft.tooltip.condition2": "Exhaust",
+  "block.turbines.turbine_shaft.tooltip.behaviour2": "Steam is exhausted on the side too!",
+
+  "block.turbines.steam_pump.tooltip.summary": "Pulls steam from all connected Pressurized Steam Pipes and machines that output steam into one direction.",
+  "block.turbines.steam_pump.tooltip.condition1": "Pump Rate",
+  "block.turbines.steam_pump.tooltip.behaviour1": "The Pump has an adjustable Pump Rate. Increasing this also increases the Kinetic Stress Impact, and higher RPM increases the Stress Impact as well.",
+  "block.turbines.steam_pump.tooltip.condition2": "Transfer Speed",
+  "block.turbines.steam_pump.tooltip.behaviour2": "Pump Rate and RPM control how much steam gets transferred — higher values = faster transfer.",
+
+  "block.turbines.steam_jet_thruster.tooltip.summary": "Consumes Steam to produce directed thrust. Connect a compressor along with a pump for increased efficiency and power.",
+  "block.turbines.steam_ejector.tooltip.summary": "Consumes Steam to pump fluids across great distances. Higher pressure and throughput enable longer range pumping.",
+  "block.turbines.lava_duct_turbine.tooltip.summary": "Generates SU based on how many sides are touching lava. Each side touching lava produces 475 SU. Place below a Lava Duct Shaft and stack multiple turbines up to 5 max.",
+  "block.turbines.lava_duct_shaft.tooltip.summary": "Collects SU from Lava Duct Turbines placed below it. Outputs kinetic power and requires continuous water supply to its copper pipe side.",
 
   "block.turbines.directional_analog_gearshift.tooltip.summary": "A directional gearshift controlled by analog redstone signals. The LEFT and RIGHT sides determine output speed and direction from their signal differential.",
   "block.turbines.directional_analog_gearshift.tooltip.condition1": "When Unlocked",
@@ -30,21 +73,11 @@
   "block.turbines.directional_analog_gearshift.tooltip.condition3": "Input Direction",
   "block.turbines.directional_analog_gearshift.tooltip.behaviour3": "Kinetic input must be supplied from the BACK side (Marked Red). The OPPOSITE side (Marked Blue) is the output.",
 
-  "block.turbines.steam_boiler.tooltip.summary": "Produces Steam which can be fed to Steam Turbines, Steam Pumps, Steam Compressors, and Pressurized Steam Pipes. Make sure to feed it fuel and water!",
-
-  "block.turbines.pressure_pipe.tooltip.summary": "Holds Steam from other machines. Use it along with a Pressurized Steam Pump to connect machines together.",
-
-  "block.turbines.steam_compressor.tooltip.summary": "Uses rotational force to compress Steam to have higher pressure and throughput. Place it between Steam Boilers/Steam Pumps and Steam Turbines.",
-
-  "block.turbines.steam_turbine.tooltip.summary": "Consumes Steam to generate power which is sent to the Steam Turbine Shaft. You can chain 10 of these together for higher SU.",
-
-  "block.turbines.turbine_shaft.tooltip.summary": "Generates SU from chained Steam Turbines.",
-
-  "block.turbines.steam_pump.tooltip.summary": "Pulls steam from all connected Pressurized Steam Pipes into one direction.",
-
-  "block.turbines.lava_duct_turbine.tooltip.summary": "Generates SU based on how many sides are touching lava. Each side touching lava produces 475 SU. Place below a Lava Duct Shaft and stack multiple turbines up to 5 max.",
-
-  "block.turbines.lava_duct_shaft.tooltip.summary": "Collects SU from Lava Duct Turbines placed below it. Outputs kinetic power and requires continuous water supply to its copper pipe side.",
+  "block.turbines.network_diagnoser.tooltip.summary": "Displays network RPM, SU usage, and allows stress testing. Right-click to configure.",
+  "block.turbines.network_diagnoser.tooltip.condition1": "Networked",
+  "block.turbines.network_diagnoser.tooltip.behaviour1": "Shows live RPM and stress data from the connected kinetic network when viewed with engineer goggles.",
+  "block.turbines.network_diagnoser.tooltip.condition2": "Stress Testing",
+  "block.turbines.network_diagnoser.tooltip.behaviour2": "When active, injects configurable stress into the network to test capacity limits.",
 
   "turbines.goggles.boiler.header": " Steam Boiler  ",
   "turbines.goggles.boiler.status.active": "  Status: Active  ",
@@ -53,6 +86,7 @@
   "turbines.goggles.boiler.fuel": " Fuel: %s x%d  ",
   "turbines.goggles.boiler.fuel_fluid_name": " Fuel: %s  ",
   "turbines.goggles.boiler.burn_time": "  Burn: %s / %s ",
+  "turbines.goggles.boiler.burn_time_infinite": "Infinite",
   "turbines.goggles.boiler.fuel_empty": " Fuel: Empty ",
   "turbines.goggles.boiler.water": "  Water: %d / %d mB ",
   "turbines.goggles.boiler.fuel_fluid": "  Liquid Fuel: %s %d/%d mB ",
@@ -64,23 +98,14 @@
   "turbines.goggles.pipe.pressure": "  Pressure: %s (max %.1f)  ",
   "turbines.goggles.pipe.active_dirs": "  Active: %d directions  ",
   "turbines.goggles.pipe.idle": "  Idle  ",
-  "turbines.goggles.boiler.burn_time_infinite": "Infinite",
+
   "turbines.dag.redstone_lock": "Redstone Lock",
   "turbines.dag.redstone_lock.unlocked": "Unlocked",
   "turbines.dag.redstone_lock.locked": "Redstone Locked",
-  "turbines.jei.category.mechanical_crafting": "Mechanical Crafting",
-  "block.turbines.network_diagnoser": "Network Diagnoser",
-  "block.turbines.network_diagnoser.tooltip.summary": "Displays network RPM, SU usage, and allows stress testing. Right-click to configure.",
-  "block.turbines.network_diagnoser.tooltip.condition1": "Networked",
-  "block.turbines.network_diagnoser.tooltip.behaviour1": "Shows live RPM and stress data from the connected kinetic network when viewed with engineer goggles.",
-  "block.turbines.network_diagnoser.tooltip.condition2": "Stress Testing",
-  "block.turbines.network_diagnoser.tooltip.behaviour2": "When active, injects configurable stress into the network to test capacity limits.",
-  "block.turbines.steam_jet_thruster.tooltip.summary": "Consumes Steam to produce directed thrust. Connect a compressor along with a pump for increased efficiency and power.",
-  "block.turbines.steam_ejector.tooltip.summary": "Consumes Steam to pump fluids across great distances. Higher pressure and throughput enable longer range pumping.",
-
   "turbines.nd.max_rpm": "Max RPM",
   "turbines.nd.max_su": "Max SU",
   "turbines.nd.settings": "Diagnoser Settings",
+  "turbines.jei.category.mechanical_crafting": "Mechanical Crafting",
 
   "subtitles.turbines.lava_duct_shaft": "Lava Duct Shaft rumbles",
   "subtitles.turbines.steam_turbine": "Steam Turbine spins",
