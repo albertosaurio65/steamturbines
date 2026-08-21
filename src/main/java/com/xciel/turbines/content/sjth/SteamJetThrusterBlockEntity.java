@@ -10,14 +10,13 @@ import dev.ryanhcode.sable.api.physics.force.QueuedForceGroup;
 import dev.ryanhcode.sable.api.physics.handle.RigidBodyHandle;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 
-import com.xciel.turbines.client.sound.BlockLoopingSoundInstance;
+import com.xciel.turbines.client.sound.BlockEntitySoundHandler;
 import com.xciel.turbines.registrate.STSounds;
 import com.xciel.turbines.steam.SteamData;
 import com.xciel.turbines.steam.transfer.IPressurizedConsumer;
 import com.xciel.turbines.steam.transfer.ISteamEndpoint;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -47,11 +46,16 @@ public class SteamJetThrusterBlockEntity extends SmartBlockEntity implements
     private SteamData lastInputSteam = SteamData.empty();
     private double currentThrust = 0d;
 
-    @OnlyIn(Dist.CLIENT)
-    private BlockLoopingSoundInstance soundInstance;
-
     public SteamJetThrusterBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
+    }
+
+    @Override
+    public void invalidate() {
+        super.invalidate();
+        if (level != null && level.isClientSide) {
+            BlockEntitySoundHandler.stop(this);
+        }
     }
 
     @Override
@@ -139,18 +143,11 @@ public class SteamJetThrusterBlockEntity extends SmartBlockEntity implements
     @OnlyIn(Dist.CLIENT)
     private void tickAudio() {
         if (isActive()) {
-            if (soundInstance == null || soundInstance.isStopped()) {
-                soundInstance = new BlockLoopingSoundInstance(STSounds.STEAM_THRUSTER.get(), worldPosition);
-                Minecraft.getInstance().getSoundManager().play(soundInstance);
-            }
-            soundInstance.keepAlive();
+            BlockEntitySoundHandler.playLooping(this, STSounds.STEAM_THRUSTER.get());
             float targetVolume = Math.min(1.0f, (float)(currentThrust / 1000.0));
-            soundInstance.setVolume(targetVolume);
+            BlockEntitySoundHandler.setVolume(this, targetVolume);
         } else {
-            if (soundInstance != null) {
-                soundInstance.stopSound();
-                soundInstance = null;
-            }
+            BlockEntitySoundHandler.stop(this);
         }
     }
 

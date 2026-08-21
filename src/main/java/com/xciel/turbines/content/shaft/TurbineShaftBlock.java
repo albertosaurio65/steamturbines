@@ -1,5 +1,6 @@
 package com.xciel.turbines.content.shaft;
 
+import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.content.kinetics.base.IRotate;
 import com.simibubi.create.foundation.block.IBE;
 import com.xciel.turbines.AllBlockEntityTypes;
@@ -18,7 +19,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class TurbineShaftBlock extends Block implements IBE<TurbineShaftBlockEntity>, IRotate {
+public class TurbineShaftBlock extends Block implements IBE<TurbineShaftBlockEntity>, IRotate, IWrenchable {
 
     public static final Property<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
 

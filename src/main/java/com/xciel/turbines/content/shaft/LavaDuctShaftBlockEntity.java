@@ -5,11 +5,10 @@ import com.simibubi.create.content.contraptions.bearing.WindmillBearingBlockEnti
 import com.simibubi.create.content.kinetics.base.GeneratingKineticBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollOptionBehaviour;
-import com.xciel.turbines.client.sound.BlockLoopingSoundInstance;
+import com.xciel.turbines.client.sound.BlockEntitySoundHandler;
 import com.xciel.turbines.registrate.STSounds;
 import com.xciel.turbines.steam.SteamConstants;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -42,9 +41,6 @@ public class LavaDuctShaftBlockEntity extends GeneratingKineticBlockEntity imple
     private float totalGeneratedSU;
     private boolean hasWater;
 
-    @OnlyIn(Dist.CLIENT)
-    private BlockLoopingSoundInstance soundInstance;
-
     private ScrollOptionBehaviour<WindmillBearingBlockEntity.RotationDirection> movementDirection;
 
     public LavaDuctShaftBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
@@ -57,6 +53,14 @@ public class LavaDuctShaftBlockEntity extends GeneratingKineticBlockEntity imple
             }
         };
         waterHandler = waterTank;
+    }
+
+    @Override
+    public void invalidate() {
+        super.invalidate();
+        if (level != null && level.isClientSide) {
+            BlockEntitySoundHandler.stop(this);
+        }
     }
 
     @Override
@@ -104,26 +108,16 @@ public class LavaDuctShaftBlockEntity extends GeneratingKineticBlockEntity imple
     @OnlyIn(Dist.CLIENT)
     private void tickSound() {
         if (getGeneratedSpeed() == 0) {
-            if (soundInstance != null) {
-                soundInstance.stopSound();
-                soundInstance = null;
-            }
+            BlockEntitySoundHandler.stop(this);
             return;
         }
         float cap = calculateAddedStressCapacity();
         if (cap < 50) {
-            if (soundInstance != null) {
-                soundInstance.stopSound();
-                soundInstance = null;
-            }
+            BlockEntitySoundHandler.stop(this);
             return;
         }
-        if (soundInstance == null || soundInstance.isStopped()) {
-            soundInstance = new BlockLoopingSoundInstance(STSounds.LAVA_DUCT_SHAFT.get(), worldPosition);
-            Minecraft.getInstance().getSoundManager().play(soundInstance);
-        }
-        soundInstance.setVolume(0.08f);
-        soundInstance.keepAlive();
+        BlockEntitySoundHandler.playLooping(this, STSounds.LAVA_DUCT_SHAFT.get());
+        BlockEntitySoundHandler.setVolume(this, 0.08f);
     }
 
     private void spawnSteamParticles() {

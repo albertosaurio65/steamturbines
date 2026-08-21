@@ -5,7 +5,7 @@ import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.xciel.turbines.content.transport.pipe.PressurizedPipeBlock;
 import com.xciel.turbines.content.transport.pipe.PressurizedPipeBlockEntity;
-import com.xciel.turbines.client.sound.BlockLoopingSoundInstance;
+import com.xciel.turbines.client.sound.BlockEntitySoundHandler;
 import com.xciel.turbines.registrate.STSounds;
 import com.xciel.turbines.steam.SteamConstants;
 import com.xciel.turbines.steam.SteamData;
@@ -16,15 +16,12 @@ import com.xciel.turbines.steam.transfer.ISteamEndpoint;
 import com.xciel.turbines.steam.transfer.ISteamTransport;
 import com.xciel.turbines.steam.transfer.ITurbineEndpoint;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
@@ -47,9 +44,6 @@ public class SteamTurbineBlockEntity extends SmartBlockEntity implements IPressu
     private int stageNumber = 0;
     private float stageEfficiency = 1.0f;
 
-    @OnlyIn(Dist.CLIENT)
-    private BlockLoopingSoundInstance soundInstance;
-
     private SteamData lastInputSteam = SteamData.empty();
     private SteamData lastExhaustSteam = SteamData.empty();
     private Direction inputSource = null;
@@ -60,6 +54,14 @@ public class SteamTurbineBlockEntity extends SmartBlockEntity implements IPressu
 
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
+    }
+
+    @Override
+    public void invalidate() {
+        super.invalidate();
+        if (level != null && level.isClientSide) {
+            BlockEntitySoundHandler.stop(this);
+        }
     }
 
     @Override
@@ -152,17 +154,10 @@ public class SteamTurbineBlockEntity extends SmartBlockEntity implements IPressu
 
         if (level.isClientSide) {
             if (turbineSpeed > 0) {
-                if (soundInstance == null || soundInstance.isStopped()) {
-                    soundInstance = new BlockLoopingSoundInstance(STSounds.STEAM_TURBINE.get(), worldPosition);
-                    Minecraft.getInstance().getSoundManager().play(soundInstance);
-                }
-                soundInstance.setVolume(0.08f);
-                soundInstance.keepAlive();
+                BlockEntitySoundHandler.playLooping(this, STSounds.STEAM_TURBINE.get());
+                BlockEntitySoundHandler.setVolume(this, 0.08f);
             } else {
-                if (soundInstance != null) {
-                    soundInstance.stopSound();
-                    soundInstance = null;
-                }
+                BlockEntitySoundHandler.stop(this);
             }
         }
     }

@@ -23,6 +23,8 @@ import java.util.List;
 public class TurbineShaftBlockEntity extends GeneratingKineticBlockEntity implements IHaveGoggleInformation, ISteamEndpoint {
     private static final float BASE_STRESS_CAPACITY = 390.0f;
     private static final float KINETIC_STRESS_CAPACITY = 256.0f;
+    private static final float COAST_SPEED_DECAY = 0.97f;
+    private static final float COAST_THRESHOLD = 1f;
 
     private float aggregatedSpeed = 0f;
     private float aggregatedThroughput = 0f;
@@ -119,14 +121,20 @@ public class TurbineShaftBlockEntity extends GeneratingKineticBlockEntity implem
             foundActive = true;
         }
 
-        // Only overwrite when we found active data, or when we have nothing
-        // worth preserving. This prevents transient 0-reads (chunk load, BE tick
-        // ordering) from killing a running shaft, while still allowing gradual
-        // shutdown when turbines legitimately run out of steam.
+        // Coast down when no turbines produce steam, so the shaft stops
+        // instead of keeping its last known speed forever.
         if (foundActive || aggregatedSpeed <= 0f) {
             aggregatedSpeed = totalSpeed;
             aggregatedThroughput = totalThroughput;
             connectedTurbineCount = count;
+        } else {
+            aggregatedSpeed *= COAST_SPEED_DECAY;
+            aggregatedThroughput *= COAST_SPEED_DECAY;
+            if (aggregatedSpeed < COAST_THRESHOLD) {
+                aggregatedSpeed = 0f;
+                aggregatedThroughput = 0f;
+                connectedTurbineCount = 0;
+            }
         }
 
         updateGeneratedRotation();
