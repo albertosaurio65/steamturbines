@@ -25,6 +25,7 @@ public class STCreativeTabs {
                         output.accept(STBlocks.STEAM_BOILER.get());
                         output.accept(STBlocks.PRESSURE_PIPE.get());
                         output.accept(STBlocks.STEAM_PUMP.get());
+                        output.accept(STBlocks.STEAM_EJECTOR.get());
                         output.accept(STBlocks.STEAM_COMPRESSOR.get());
                         output.accept(STBlocks.STEAM_TURBINE.get());
                         output.accept(STBlocks.TURBINE_SHAFT.get());
