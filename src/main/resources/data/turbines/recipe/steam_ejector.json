@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": { "item": "create:fluid_pipe" },
+    "M": { "item": "create:mechanical_pump" },
+    "Z": { "item": "turbines:pressured_iron_ingot" }
+  },
+  "pattern": [
+    "ZZZ",
+    "FMF",
+    "ZZZ"
+  ],
+  "result": { "count": 1, "id": "turbines:steam_ejector" }
+}
