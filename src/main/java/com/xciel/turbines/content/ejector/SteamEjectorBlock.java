@@ -3,7 +3,6 @@ package com.xciel.turbines.content.ejector;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.IBE;
 import com.xciel.turbines.AllBlockEntityTypes;
-import net.createmod.catnip.data.Iterate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
@@ -70,6 +69,14 @@ public class SteamEjectorBlock extends Block implements IBE<SteamEjectorBlockEnt
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return getShape(state, level, pos, context);
+    }
+
+    @Override
+    public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos neighborPos, boolean isMoving) {
+        super.neighborChanged(state, level, pos, block, neighborPos, isMoving);
+        if (level.isClientSide) return;
+        if (level.getBlockEntity(pos) instanceof SteamEjectorBlockEntity ejector)
+            ejector.onNeighborChanged();
     }
 
     @Override

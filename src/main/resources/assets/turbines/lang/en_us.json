@@ -28,13 +28,13 @@
 
   "block.turbines.steam_boiler.tooltip.summary": "Produces Steam which can be fed to Steam Turbines, Steam Pumps, Steam Compressors, and Pressurized Steam Pipes. Make sure to feed it fuel and water!",
   "block.turbines.steam_boiler.tooltip.condition1": "Fuels",
-  "block.turbines.steam_boiler.tooltip.behaviour1": "It can consume liquid fuels too, that's what the Pearlescent Dew is for — it is THE best fuel source for the Steam Boiler. Feed water and liquid fuel via pipes or from a bucket on-hand, and solid fuels can be inputted via mechanical arms as well.",
+  "block.turbines.steam_boiler.tooltip.behaviour1": "It can consume liquid fuels too. Pearlescent Dew is the best fuel source for the Steam Boiler. Feed water and liquid fuel through pipes or from buckets, and supply solid fuels with mechanical arms.",
   "block.turbines.steam_boiler.tooltip.condition2": "Steam Setup",
   "block.turbines.steam_boiler.tooltip.behaviour2": "Recommended layout: place a Steam Pump directly after the boiler, a Steam Compressor after the pump, then Steam Turbines afterwards, further down the line. Place Pressurized Pipes between the boiler and pump if you want to combine multiple boilers into a unit/cluster.",
 
   "block.turbines.pressure_pipe.tooltip.summary": "Holds Steam for other machines. Use it along with a Pressurized Steam Pump to move steam between machines together.",
   "block.turbines.pressure_pipe.tooltip.condition1": "Passive Transport",
-  "block.turbines.pressure_pipe.tooltip.behaviour1": "The pipes don't move the steam on their own — that's what the Steam Pump is for.",
+  "block.turbines.pressure_pipe.tooltip.behaviour1": "The pipes do not move steam on their own. Use a Steam Pump to move steam through them.",
 
   "block.turbines.steam_compressor.tooltip.summary": "Uses rotational force supplied on the sides to compress Steam to have higher pressure and throughput. Place it after either a Steam Pump.",
   "block.turbines.steam_compressor.tooltip.condition1": "Performance Scaling",
@@ -58,10 +58,10 @@
   "block.turbines.steam_pump.tooltip.condition1": "Pump Rate",
   "block.turbines.steam_pump.tooltip.behaviour1": "The Pump has an adjustable Pump Rate. Increasing this also increases the Kinetic Stress Impact, and higher RPM increases the Stress Impact as well.",
   "block.turbines.steam_pump.tooltip.condition2": "Transfer Speed",
-  "block.turbines.steam_pump.tooltip.behaviour2": "Pump Rate and RPM control how much steam gets transferred — higher values = faster transfer.",
+  "block.turbines.steam_pump.tooltip.behaviour2": "Pump Rate and RPM control steam transfer speed. Higher values transfer steam faster.",
 
   "block.turbines.steam_jet_thruster.tooltip.summary": "Consumes Steam to produce directed thrust. Connect a compressor along with a pump for increased efficiency and power.",
-  "block.turbines.steam_ejector.tooltip.summary": "Consumes Steam to pump fluids across great distances. Higher pressure and throughput enable longer range pumping.",
+  "block.turbines.steam_ejector.tooltip.summary": "Consumes Steam to pump fluids up to 80 blocks away at 10 pressure and 3 Steam/t. Lower pressure or throughput reduces range, but transfer speed stays at 1 bucket per second.",
   "block.turbines.lava_duct_turbine.tooltip.summary": "Generates SU based on how many sides are touching lava. Each side touching lava produces 475 SU. Place below a Lava Duct Shaft and stack multiple turbines up to 5 max.",
   "block.turbines.lava_duct_shaft.tooltip.summary": "Collects SU from Lava Duct Turbines placed below it. Outputs kinetic power and requires continuous water supply to its copper pipe side.",
 
