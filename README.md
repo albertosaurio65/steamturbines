@@ -4,7 +4,7 @@
 The code in this codebase is written by AI, I vibe-coded the mod. 
 **HOWEVER:**
 - All assets (textures, block models, sounds, anything that isn't code) are made by me, not AI generated.
-- This mod is not "oneshotted". Meaning that I worked on this mod for the past week via vibe-coding as I do not know how to code (hopefully I do learn).
+- This mod is not "oneshotted". Meaning that I worked on this mod for a long time via vibe-coding as I do not know how to code (hopefully I do learn).
 - This was made with love and pure effort, a hobby project of mine.
 - Mod is stable, but still needs work, and I am actively planning on more additions to this mod.
 
